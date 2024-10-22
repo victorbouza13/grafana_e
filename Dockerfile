@@ -5,6 +5,7 @@ FROM grafana/grafana-enterprise:latest
 ENV GF_SECURITY_ALLOW_EMBEDDING=true
 ENV GF_AUTH_ANONYMOUS_ENABLED=true
 ENV GF_CORS_ALLOW_ORIGIN=*
+ENV GF_SECURITY_X_FRAME_OPTIONS=allow-from *
 ENV GF_SERVER_HTTP_ADDR=0.0.0.0
 
 # Utilizar la variable de puerto proporcionada por Railway
