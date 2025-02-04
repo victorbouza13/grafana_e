@@ -1,8 +1,8 @@
 # Utiliza la imagen base de Grafana Enterprise
 FROM grafana/grafana-enterprise:latest
 
-# Cambiar los permisos de los directorios para dar acceso de lectura, escritura y ejecución a todos los usuarios
-RUN chmod -R 777 /var/lib/grafana /etc/grafana /var/log/grafana /var/lib/grafana/plugins
+# Cambiar los permisos solo en los directorios de datos y plugins que deben ser accesibles por todos
+RUN chmod -R 777 /var/lib/grafana /var/lib/grafana/plugins
 
 # Establecer variables de entorno para habilitar el embebido, CORS, autenticación anónima y ajustar la configuración de seguridad
 ENV GF_SECURITY_ALLOW_EMBEDDING=true
