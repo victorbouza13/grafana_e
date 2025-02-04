@@ -11,11 +11,6 @@ ENV GF_SECURITY_X_FRAME_OPTIONS="allow-all"
 ENV GF_SECURITY_CONTENT_SECURITY_POLICY="frame-ancestors 'self' *;"
 ENV GF_SERVER_HTTP_ADDR=0.0.0.0
 
-# Ajustar el dominio y la URL raíz para Railway
-ENV GF_SERVER_DOMAIN="grafanae-production.up.railway.app"
-ENV GF_SERVER_ROOT_URL="https://grafanae-production.up.railway.app/"
-ENV GF_SERVER_ENFORCE_DOMAIN=true
-
 # Utilizar la variable de puerto proporcionada por Railway
 ENV GF_SERVER_HTTP_PORT=$PORT
 
