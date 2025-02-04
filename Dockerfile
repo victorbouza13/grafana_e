@@ -2,7 +2,7 @@
 FROM grafana/grafana-enterprise:latest
 
 # Cambiar los permisos solo en los directorios de datos y plugins que deben ser accesibles por todos
-RUN sudo chmod -R 777 /var/lib/grafana /var/lib/grafana/plugins
+RUN chmod -R 777 /var/lib/grafana 
 
 # Establecer variables de entorno para habilitar el embebido, CORS, autenticación anónima y ajustar la configuración de seguridad
 ENV GF_SECURITY_ALLOW_EMBEDDING=true
