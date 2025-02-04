@@ -1,8 +1,8 @@
 # Utiliza la imagen base de Grafana Enterprise
 FROM grafana/grafana-enterprise:latest
 
-# Asegurarse de que Grafana tenga permisos de escritura en los directorios necesarios
-RUN chown -R grafana:grafana /var/lib/grafana /etc/grafana /var/log/grafana /var/lib/grafana/plugins
+# Cambiar los permisos de los directorios para dar acceso de lectura, escritura y ejecución a todos los usuarios
+RUN chmod -R 777 /var/lib/grafana /etc/grafana /var/log/grafana /var/lib/grafana/plugins
 
 # Establecer variables de entorno para habilitar el embebido, CORS, autenticación anónima y ajustar la configuración de seguridad
 ENV GF_SECURITY_ALLOW_EMBEDDING=true
