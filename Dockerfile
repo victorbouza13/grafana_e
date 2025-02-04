@@ -1,8 +1,15 @@
 # Utiliza la imagen base de Grafana Enterprise
 FROM grafana/grafana-enterprise:latest
 
-# Cambiar los permisos solo en los directorios de datos y plugins que deben ser accesibles por todos
-RUN chmod -R 777 /var/lib/grafana 
+# Crear un nuevo directorio para los datos de Grafana (fuera de las carpetas del sistema operativo)
+RUN mkdir -p /grafana_data
+
+# Cambiar los permisos para el nuevo directorio (sin permisos especiales)
+RUN chmod -R 777 /grafana_data
+
+# Establecer variables de entorno para cambiar la ruta de datos y plugins
+ENV GF_PATHS_DATA=/grafana_data/data
+ENV GF_PATHS_PLUGINS=/grafana_data/plugins
 
 # Establecer variables de entorno para habilitar el embebido, CORS, autenticación anónima y ajustar la configuración de seguridad
 ENV GF_SECURITY_ALLOW_EMBEDDING=true
